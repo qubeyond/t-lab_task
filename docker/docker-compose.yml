@@ -1,0 +1,59 @@
+x-common: &common
+  image: chemotaxis-memory:latest
+  volumes:
+    - ../results:/app/results
+    - ${HOME}/.cache/huggingface:/app/.hf_cache
+  environment:
+    - HF_HUB_DISABLE_XET=1
+
+services:
+  tests:
+    <<: *common
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    command: ["tests/test_trajectory_logic.py"]
+
+  embed-sanity:
+    <<: *common
+    command: ["tests/test_embeddings_sanity.py"]
+
+  tier1:
+    <<: *common
+    command: ["experiments/run_tier1.py"]
+
+  tier2:
+    <<: *common
+    command: ["experiments/run_tier2.py"]
+
+  locomo:
+    <<: *common
+    command: ["experiments/run_locomo.py"]
+
+  longmemeval:
+    <<: *common
+    command: ["experiments/run_longmemeval.py"]
+
+  learned-scorer:
+    <<: *common
+    command: ["experiments/train_learned_scorer.py"]
+
+  relational:
+    <<: *common
+    command: ["experiments/run_relational.py"]
+
+  learned-scorer-relational:
+    <<: *common
+    command: ["experiments/train_learned_scorer_relational.py"]
+
+  schematic:
+    <<: *common
+    command: ["analysis/make_schematic.py"]
+
+  plots:
+    <<: *common
+    command: ["analysis/make_plots.py"]
+
+  stats:
+    <<: *common
+    command: ["analysis/stats_tests.py"]

@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.py[cod]
+.hf_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+
+realdata/data/*
+!realdata/data/.gitkeep
+
+results/tables/relational_gap_structure.csv
+results/tables/relational_recall.csv
+results/tables/locomo_recall.csv

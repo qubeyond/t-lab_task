@@ -1,0 +1,6 @@
+variant,test_acc,b01,b10,p,holm_significant
+full,0.3192118226600985,,,,
+no_chemotaxis,0.25024630541871923,,,,
+chemotaxis_only,0.30147783251231525,,,,
+mcnemar_full_vs_no_chemotaxis,,188.0,118.0,7.997751280619525e-05,True
+mcnemar_chemotaxis_only_vs_no_chemotaxis,,179.0,127.0,0.003551464807706073,True

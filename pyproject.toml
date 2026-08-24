@@ -1,0 +1,35 @@
+[project]
+name = "chemotaxis-memory"
+version = "0.1.0"
+description = "decision-oriented vs similarity-based agent memory"
+requires-python = "==3.12.*"
+dependencies = [
+    "torch==2.4.1",
+    "transformers==4.44.2",
+    "sentence-transformers==3.0.1",
+    "numpy==1.26.4",
+    "pandas==2.2.2",
+    "scipy==1.17.1",
+    "matplotlib==3.9.1",
+    "tqdm==4.66.4",
+]
+
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "C4", "UP", "PIE", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003"]

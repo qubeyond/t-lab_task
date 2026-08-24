@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+.hf_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.ruff_cache/
+.pytest_cache/
+.git/
+results/plots/*.png
